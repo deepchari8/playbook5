@@ -1,0 +1,21 @@
+- hosts: testenv_1
+  remote_user: user1
+
+  become: yes
+
+  become_method: sudo
+
+  vars:
+
+    jenkins_hostname: localhost
+    jenkins_http_port: 8011
+
+  roles:
+
+    - role: geerlingguy.java
+
+      become: yes
+
+    - role: geerlingguy.jenkins
+
+      become: yes
